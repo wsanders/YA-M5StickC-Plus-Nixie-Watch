@@ -7,6 +7,8 @@ Here is Yet Another Nixie Watch that takes advantage of more of the M5StickC-Plu
 - Watch stays on when charging.
 - BOM: M5StickC-Plus with the watch band kit from M5Stack.
 
+!wrist.jpg [Image of wristwatch in action]
+
 ## Installation and Operation
 - Import the .m5f file and touch up the code with your Wifi SSID (no spaces), password, standard and savings time timezones (or any two TZs), adjust text messages for TZ and your language.
 - Upload the image files [0-9].jpg in this repo to UIFlow using the MANAGER. UIFlow will place them in a directory on the UIFlow filesystem called "res".
