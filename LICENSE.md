@@ -1,8 +1,8 @@
-## Images of Nixie Tubes ([0-9].jpg): 
+### Images of Nixie Tubes ([0-9].jpg): 
 License: Creative Commons Attribution-ShareAlike 3.0 Unported
 Author: https://commons.wikimedia.org/wiki/User:Hellbus
 
-## EVERYTHING ELSE EXCEPT IMAGES:
+### EVERYTHING ELSE EXCEPT IMAGES:
 
 License: MIT License
 
