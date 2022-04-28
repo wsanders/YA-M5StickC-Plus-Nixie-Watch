@@ -2,7 +2,9 @@
 License: Creative Commons Attribution-ShareAlike 3.0 Unported
 Author: https://commons.wikimedia.org/wiki/User:Hellbus
 
-## EVERYTHING ELSE EXCEPT IMAGES: MIT License
+## EVERYTHING ELSE EXCEPT IMAGES:
+
+License: MIT License
 
 Copyright (c) 2022 W Sanders
 
