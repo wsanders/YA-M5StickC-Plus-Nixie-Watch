@@ -5,6 +5,7 @@ Here is Yet Another Nixie Watch that takes advantage of more of the M5StickC-Plu
 - Adjustable brightess and TX offset, saved in EEPROM.
 - Sync RTC to NTP only on demand, so device can be taken out of range of Wifi, and to save power.
 - Watch stays on when charging.
+- Battery indicator.
 - BOM: M5StickC-Plus with the watch band kit from M5Stack.
 
 ![Image of wristwatch in action](wrist.jpg)
