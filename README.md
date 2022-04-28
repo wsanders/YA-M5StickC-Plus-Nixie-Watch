@@ -8,7 +8,8 @@ Here is Yet Another Nixie Watch that takes advantage of more of the M5StickC-Plu
 - BOM: M5StickC-Pluswith the watch band kit from M5Stack.
 
 ## Installation and Operation
-- Touch up the code with your Wifi SSID (no spaces), password, standard and savings time timezones (or any two TZs), adjust text messages for TZ and your language.
+- Import the .m5f file and touch up the code with your Wifi SSID (no spaces), password, standard and savings time timezones (or any two TZs), adjust text messages for TZ and your language.
+- Upload the image files in the "res" file in this repo to UIFlow using the MANAGER. UIFlow will place them in a directory on the UIFlow filesystem called "res".
 - SPECIAL INSTALLATION WORKAROUND! UiFlow puts the call to wifiCfg.doConnect() at the top of the generated python regardless of where you place the block in UIFlow. (Bug? Feature?) After creating the program, you need to manually edit the generated python before you upload it. Move the wifiCfg.doConnect() call just below the CONNECT text message in the multiBtnCb_AB function. See comments in "generated_python.py". 
 - Upload the generated python to the M5StickC-Plus in "Machine Mode". Turn off the boot menu delay for extra speed in booting.
 - Operation:
