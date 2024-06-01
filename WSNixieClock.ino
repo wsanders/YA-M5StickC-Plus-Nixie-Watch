@@ -45,8 +45,7 @@ void setup() {
     TZoffset = preferences.getInt( "TZoffset", TZoffset);
     M5.Lcd.setRotation(3);
     M5.Axp.ScreenBreath(bright);
-    // Seems to be included with base device .h, set to 115200
-    Serial.println("works");
+    // Serial seems to be included with base device .h, set to 115200
 
     // out of sheer laziness copy header images to bitmaps
     for (int i=0; i<10; i++) { 
@@ -80,7 +79,8 @@ void setup() {
 void loop() {
         int d1,d2,d3,d4;
         getRTCTime(); 
-        RTCtime.tm_hour = (RTCtime.tm_hour + TZoffset) % 24;
+        // modulo 24 of negative number crashes here??
+        RTCtime.tm_hour = (RTCtime.tm_hour + TZoffset + 24) % 24;
         d1 = RTCtime.tm_hour / 10;        
         d2 = RTCtime.tm_hour % 10;
         d3 = RTCtime.tm_min / 10;        
