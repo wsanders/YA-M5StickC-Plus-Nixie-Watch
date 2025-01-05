@@ -12,6 +12,8 @@
 #include "images/7.h"
 #include "images/8.h"
 #include "images/9.h"
+#include "WSWifiParams.h"
+
 int pixel[3];
 // pointer fu to preserve the start of .h data
 char *datastart[10];
@@ -23,9 +25,6 @@ const char* ntpServer = "us.pool.ntp.org";
 long gmtOffset_sec     = 3600 * -8;
 const int daylightOffset_sec = 0;
 
-//OBFUSCATE!
-const char* ssid     = "YOUR SSID";
-const char* password = "YOUR PASSWORD";
 struct tm RTCtime;
 int bright =  0;
 int TZoffset = 0;
@@ -93,14 +92,15 @@ void loop() {
         if (M5.BtnA.wasPressed() && M5.BtnB.wasPressed()) { 
             setRTCTime();
         } else if (M5.BtnA.wasPressed()) {
-            bright++;
-            if (bright > 13) { 
-                bright = 7;
+            bright = bright + 10;
+            if (bright > 100) { 
+                bright = 10;
             }
             M5.Axp.ScreenBreath(bright);
             M5.Lcd.setCursor(2,120);
             M5.Lcd.print("SET BRIGHT: ");
-            M5.Lcd.println(bright);
+            M5.Lcd.print(bright);
+            M5.Lcd.println("    ");
         } else if (M5.BtnB.wasPressed()) {
             // cycle through some TZoffsets
             TZoffset--;
@@ -108,9 +108,7 @@ void loop() {
             M5.Lcd.setCursor(0,120);
             M5.Lcd.print("TZ offset: ");
             M5.Lcd.print(TZoffset);
-        } else {
-            //M5.Lcd.setCursor(0,120);
-            ////M5.Lcd.println("                ");
+            M5.Lcd.print("    ");
         }
         battStat();
         delay(200);
@@ -128,7 +126,8 @@ uint16_t rgb888to565 (int r, int g, int b) {
     return (uint16_t) (
         ((r >> 3) & 0x1f) << 11 | 
         ((g >> 2) & 0x3f) << 5 |
-         (b >> 3) & 0x1f );  
+        ((b >> 3) & 0x1f)
+        );  
 }
 
 
@@ -139,13 +138,11 @@ void setRTCTime() {
     struct tm timeinfo;
 
     M5.Lcd.setCursor(0,0);
-    M5.Lcd.println("Connect USB to serial at 115200...");
-    M5.Lcd.println("Type CR in the console when ready...");
     WiFi.mode(WIFI_STA);
     M5.Lcd.printf("\nConnecting to %s", ssid);
     WiFi.begin(ssid, password);  // Connect wifi and return connection status.
     while (WiFi.status() != WL_CONNECTED) {
-        delay(500);         // delay 0.5s.  延迟0.5s
+        delay(500); 
         M5.Lcd.print(".");
     }
     M5.Lcd.println("\nCONNECTED!");
